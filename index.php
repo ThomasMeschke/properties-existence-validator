@@ -6,6 +6,8 @@ use thomasmeschke\PropertiesExistenceValidator\PropertiesExistenceValidator;
 use thomasmeschke\PropertiesExistenceValidator\rules\{
     AllOfPropertiesExistenceValidationRule,
     AnyOfPropertiesExistenceValidationRule,
+    MaximumNumberOfPropertiesExistenceValidationRule,
+    MinimumNumberOfPropertiesExistenceValidationRule,
     NoneOfPropertiesExistenceValidationRule,
     OneOfPropertiesExistenceValidationRule
 };
@@ -29,7 +31,9 @@ class SampleUsage
             new NoneOfPropertiesExistenceValidationRule(['prop-a', 'prop-b']),
             new OneOfPropertiesExistenceValidationRule(['prop-b', 'prop-c', 'prop-d']),
             new AnyOfPropertiesExistenceValidationRule(['prop-a', 'prop-b', 'prop-c', 'prop-d']),
-            new AllOfPropertiesExistenceValidationRule(['prop-e', 'prop-f'])
+            new AllOfPropertiesExistenceValidationRule(['prop-e', 'prop-f']),
+            new MinimumNumberOfPropertiesExistenceValidationRule(2, ['prop-d', 'prop-e', 'prop-f']),
+            new MaximumNumberOfPropertiesExistenceValidationRule(2, ['prop-d', 'prop-e', 'prop-f']),
         );
     }
 }
